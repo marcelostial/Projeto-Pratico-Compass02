@@ -1,0 +1,44 @@
+#screenLeft{
+    background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+#logobrancamobile{
+    display: none;
+}
+
+h1{
+    width: 30%;
+}
+
+#areaWelcome{
+    width: 50%;
+    padding-left: 8%;
+}
+
+
+#areaLogin{
+    display: flex;
+    flex-direction: column;
+    width: 42%;
+    gap: 50px;
+    bottom: 20%;
+    gap: 10%
+}
+
+#areaErrorMsg{
+    display: flex;
+    align-self: center;
+    padding-bottom: 10px;
+    width: 80%;
+}

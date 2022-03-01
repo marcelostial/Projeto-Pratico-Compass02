@@ -1,0 +1,18 @@
+.textFirstArea {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    width: 80%;
+    padding-top: 1%;
+    color: #E0E0E0;
+}
+
+.textErrorArea{
+    visibility: hidden;
+    text-align: center;
+    color: #E9B425;
+    font-size: 16px;
+    font-weight: bold;
+}
