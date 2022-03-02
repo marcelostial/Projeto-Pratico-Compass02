@@ -22,8 +22,8 @@
 
 import TextContent from '@/components/text/index.vue'
 import Title from '@/components/title/index.vue'
-import Input from '@/components/input/index.vue';
-import router from '@/router'
+import Input from '@/components/input/index.vue'
+import router from '@/router';
 
 export default {
     name: 'LoginLeftScreen',
