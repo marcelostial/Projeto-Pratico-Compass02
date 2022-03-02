@@ -1,0 +1,70 @@
+#homeHeader{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    height: 22%;
+}
+
+
+#logoHeader{
+    padding-top: 1.8%; 
+    padding-left: 1.5%;
+
+    img{
+    width: 220px;
+    }
+ }
+
+ 
+
+ #areaHorario{
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hora{
+    position: relative;
+    font-size: 144px;
+    font-weight: 600;
+}
+
+#data{
+    top: 165px;
+    position: absolute;
+    font-size: 100%;
+    font-weight: 400;
+}
+
+
+
+
+#areaTempo{
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+    height: 30%;
+    margin-top: 1.5%;
+    font-size: 0.9em;
+}
+
+#climate{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 3%;
+}
+
+#iconTempo{
+    height: 54%;
+    padding-left: 5%;
+}
+
+#grau{
+    padding-left: 10%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 49px;
+}
