@@ -1,11 +1,13 @@
 <template>
   <div>
     <input :class="{
-      formUserStyle: formUserStyleData,
-      formSubmitStyle: formSubmitStyleData,
+      formUserStyle,
+      formSubmitStyle,
+      formErrorStyle,
     }"
     :type="type" 
     :value="value" 
+    @click="$emit('submitClick')"
     :placeholder="placeholder">
     <img v-if="icon" draggable="false" class="form" :src="require(`@/assets/${icon}`)" :alt="alt">
   </div>
@@ -14,6 +16,8 @@
 <script>
 export default {
   name: "Input",
+
+  emits: "submitClick",
   props:{
      type: {
         type: String,
@@ -29,11 +33,15 @@ export default {
       },
 
        formUserStyle: {
-         default: false,
+          required: true,
        },
 
        formSubmitStyle: {
-         default: false,
+          required: true,
+       },
+
+       formErrorStyle:{
+         required: true,
        },
 
       icon: {
@@ -47,8 +55,6 @@ export default {
 
   data(){
         return{
-            formUserStyleData: this.formUserStyle,
-            formSubmitStyleData: this.formSubmitStyle,         
         }
     },
 }
