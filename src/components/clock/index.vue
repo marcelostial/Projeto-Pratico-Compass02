@@ -25,9 +25,6 @@ export default {
                 let horas=data.getHours();
                 let minutos=data.getMinutes();
 
-                this.horas = horas;
-                this.minutos = minutos;
-
                 let userHora = `${horas <= 9 ? "0" : ""}${horas}:${minutos <= 9 ? "0" : ""}${minutos}`
                 this.userHora = userHora;
 
@@ -35,11 +32,6 @@ export default {
                 let dia=data.getDate();
                 let mes=data.getMonth();
                 let ano=data.getFullYear();
-
-                this.diaSemana= diaSemana;
-                this.dia=dia;
-                this.mes=mes;
-                this.ano=ano;
 
                 let userData = `${userDiaSemana[diaSemana]}, ${dia <= 9 ? "0" : ""}${dia} de ${userMes[mes]} de ${ano}`
                 this.userData = userData;

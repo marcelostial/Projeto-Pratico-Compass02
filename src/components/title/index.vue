@@ -1,7 +1,11 @@
 <template>
 <div>
     <h1 v-if="level === 1"
-    :class="{firstTitleStyle: firstTitleStyleData,
+
+    :class="{
+    firstTitleStyle: firstTitleStyleData, 
+    grauStyle: grauStyleData,
+
     }">
         {{ text }}
     </h1>
@@ -43,11 +47,15 @@ export default {
         posTitleStyle:{
             default: false,
         },
+        grauStyle:{
+            default: false,
+        },
     },
     data(){
         return{
             firstTitleStyleData: this.firstTitleStyle,
             posTitleStyleData: this.posTitleStyle,
+            grauStyleData: this.grauStyle,
 
         }
     },

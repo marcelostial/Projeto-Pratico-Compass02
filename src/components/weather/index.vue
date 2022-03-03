@@ -1,0 +1,97 @@
+<template>
+    <div id="areaTempo">
+        <div id="local" v-html="localData"/>
+        <div id="climate">
+            <img id="iconTempo" draggable="false" :src="require(`@/assets/${iconTempoData}.png`)" alt="Icon Tempo"/>
+            <Title :level=1 grauStyle=true :text="`${grauData}°`"/>
+        </div>
+    </div>
+</template>
+
+<script>
+import Title from "../title/index.vue";
+import axios from "axios";
+
+export default {
+    name: "Weather",
+    components: {
+        Title,
+    },
+
+    data() {
+        return {
+            iconTempoData: "cloud",
+            grauData: "NE",
+            localData: "Localização não Disponível",
+        };
+    },
+    methods: {
+        weatherLogical() {
+              if('geolocation' in navigator) {
+                            navigator.geolocation.getCurrentPosition((position) => {
+                                let lat = position.coords.latitude;
+                                let long = position.coords.longitude;
+                                let localnovo = "Curvelo";
+                                this.localData = localnovo;
+                                this.locationLogical(lat, long);
+                                
+                            });
+
+                        const api = 'https://api.weatherapi.com/v1/current.json?key=1bfd13269e7d4825a7811658221002&q=Juiz de Fora&aqi=no'
+                        axios.get(api).then((personalData) => {
+                        console.log(personalData);
+                        let grau = `${personalData.data.current.temp_c.toFixed()}`
+                        this.grauData = grau;
+                        
+                        const icons = personalData.data.current.condition.text;
+                        let addIcons = personalData.data.current.condition.icon;
+                        let iconTempo = this.addIconsLogical(icons, addIcons);
+                        this.iconTempoData = iconTempo;
+            
+                    });
+              }
+        },    
+
+        locationLogical(lat, long){
+                const locapi = "https://us1.locationiq.com/v1/reverse.php?key=pk.e8b4b142ba161280a30a39b649ca898d&lat="+lat +"&lon=" + long +"&format=json"
+                axios.get(locapi).then((locationData) => {
+                    console.log(locationData)
+
+
+                });
+        },
+
+        addIconsLogical(icons, addIcons) {
+            if (icons.includes("thunder") && icons.includes("rain")){
+                addIcons="storm";
+
+            }else if(icons.includes("thunder")){
+                addIcons="thunder";
+            
+            }else if(icons.includes("Sunny") || icons.includes('Clear')) {
+                addIcons="sun";
+
+            }else if(icons.includes("rain") || icons.includes("drizzle")){
+                addIcons="raining";
+
+            }else if(icons.includes("Fog") || icons.includes("Mist")){
+                addIcons="cloud";
+
+            }else if (icons.includes("Cloudy") || icons.includes("Overcast") || icons.includes("cloudy")
+            ) {
+               addIcons = "cloudy";
+
+            }
+            return addIcons;
+        },
+
+},
+     mounted() {
+         this.weatherLogical();
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+@import './index.scss';
+</style>
