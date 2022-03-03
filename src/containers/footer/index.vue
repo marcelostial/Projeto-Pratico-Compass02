@@ -15,15 +15,24 @@
                         </div>
                     </div>
                     <button id="buttonNextNavigation">Continuar<br>Navegando</button>
-                    <button id="buttonLogout">Logout</button>
+                    <button id="buttonLogout" @click="logout">Logout</button>
                 </div>
     </div> 
 </template>
 
 <script>
 import Timer from "@/components/timer/index.vue";
+import router from '@/router/index.js'
 export default {
-    components: { Timer }
+    components: { Timer },
+
+    methods: {
+        logout(){
+            if(this.logout){
+                router.push({name:'Login'})
+            }
+     }
+    },
 }
 </script>
 
