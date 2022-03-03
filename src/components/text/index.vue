@@ -3,6 +3,7 @@
     <p :class="{
         textFirstArea: textFirstAreaData,
         textErrorArea: textErrorAreaData,
+        homeText: homeTextData,
     }">
     {{ text }}
     </p>
@@ -23,14 +24,18 @@ export default {
             default: false,
         },
         textErrorArea: {
-            default: false
+            default: false,
         },
+        homeText: {
+            default: false,
+        }
     },
 
     data(){
         return{
             textFirstAreaData: this.textFirstArea,
             textErrorAreaData: this.textErrorArea,
+            homeTextData: this.homeText,
 
         }
     },

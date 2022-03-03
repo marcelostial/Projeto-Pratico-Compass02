@@ -5,15 +5,17 @@
     :class="{
     firstTitleStyle: firstTitleStyleData, 
     grauStyle: grauStyleData,
+    homeTitle: homeTitleData
 
     }">
         {{ text }}
     </h1>
     <h2 v-else-if="level === 2"
-    :class="{posTitleStyle: posTitleStyleData,}">
+    :class="{posTitleStyle: posTitleStyleData}">
         {{ text }}
     </h2>
-    <h3 v-else-if="level === 3">
+    <h3 v-else-if="level === 3"
+    :class="{homeTitleEspecial: homeTitleEspecialData}">
         {{ text }}
     </h3>
     <h4 v-else-if="level === 4">
@@ -50,12 +52,20 @@ export default {
         grauStyle:{
             default: false,
         },
+        homeTitleEspecial: {
+            default: false,
+        },
+        homeTitle:{
+            default: false,
+        },
     },
     data(){
         return{
             firstTitleStyleData: this.firstTitleStyle,
             posTitleStyleData: this.posTitleStyle,
             grauStyleData: this.grauStyle,
+            homeTitleEspecialData: this.homeTitleEspecial,
+            homeTitleData: this. homeTitle,
 
         }
     },
