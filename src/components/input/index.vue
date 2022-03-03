@@ -7,7 +7,7 @@
     }"
     :type="type" 
     :value="value" 
-    @click="$emit('submitClick')"
+    @input="$emit('clickSubmit', $event.target.value)"
     :placeholder="placeholder">
     <img v-if="icon" draggable="false" class="form" :src="require(`@/assets/${icon}`)" :alt="alt">
   </div>

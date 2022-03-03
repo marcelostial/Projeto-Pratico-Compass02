@@ -1,4 +1,14 @@
 #nSecond{
-    font-size: 55px;
-    font-family: 600;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+#areaSeconds{
+    min-width: 110px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    bottom: 8px;
 }

@@ -10,9 +10,9 @@
             <Input formUserStyle=true type="text" required placeholder="Usuário" icon="iconuser.png" alt="Icon User" v-model="user"/>
             <Input :style="formErrorStyle" formUserStyle=true type="password" required placeholder="Senha" icon="iconpas.png" alt="Icon Password" v-model="pass" />
             <div id="areaErrorMsg">
-                <TextContent v-show="continuar" textErrorArea=true text="Ops, usuário ou senha inválidos. Tente novamente!" /> 
+                <TextContent v-show="errorMostrar" textErrorArea=true text="Ops, usuário ou senha inválidos. Tente novamente!" /> 
             </div>
-            <Input formSubmitStyle=true type="submit" value="Continuar"/>
+            <Input formSubmitStyle=true type="submit" value="Continuar" />
         </form>
     </div> 
 
@@ -24,6 +24,7 @@ import TextContent from '@/components/text/index.vue'
 import Title from '@/components/title/index.vue'
 import Input from '@/components/input/index.vue'
 import router from '@/router';
+import { loginConst } from '@/constants/login.js'
 
 export default {
     name: 'LoginLeftScreen',
@@ -37,31 +38,37 @@ data(){
     return{
       user: "",
       pass: "",
-      continuar: false,
+      errorMostrar: false,
     }
 },
 
 state: {
-    isLogin: false,
+    isLogged: false,
 },
 
 mutations: {
    setLogged(state){
-      state.isLogin = true;
+       state.isLogged = true
+    //   if(this.submitContinuar){
+    //       router.push({name:'Home'}) 
     }
-},
+   },
 
 methods: {
-  login() {
+  loginLogical() {
+      loginConst()
       if (this.user == "admin" && this.pass == "admin"){
-          this.setLogged()
-          router.push("/home")
-
-      } else {
-      (this.continuar = true),
-        (this.Input.formErrorStyle=true);
+         this.setLogged()
+         router.push({name:'Home'}) 
+      }
+      else {
+        this.errorMostrar = true;
+        this.Input.formErrorStyle=true;
       }
     },
+   },
+   created() {
+       this.loginLogical()
    },
 };
 

@@ -1,23 +1,30 @@
 <template>
-<div id="nSecond" v-html="timerSeconds"/>
+   <div id="areaSeconds">
+       <div id="nSecond" v-html="timerSeconds"/>
+       <TextContent text="seconds" tSecond=true /> 
+</div>
+
 </template>
 
 <script>
-import router from '../../router/index.js'
+import router from '@/router/index.js';
+import TextContent from '@/components/text/index.vue';
 
 export default {
      data(){
         return{
-            timerSeconds: "",
+            timerSeconds: "600",
         }
     },
 
     name: "Timer",
+    components: {
+        TextContent,
+    },
 
     methods:{
-
         timerLogical(){
-            let seconds = 600;
+            let seconds = 599;
             setInterval(() => {
             this.timerSeconds = seconds;
             seconds--
@@ -29,10 +36,10 @@ export default {
           }
     },
 
-    created(){
-        this.timerLogical()
-    },
-}  
+    mounted(){
+     this.timerLogical()
+    }
+} 
 </script>
 
 <style lang="scss" scoped>

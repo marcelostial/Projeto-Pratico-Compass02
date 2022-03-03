@@ -4,6 +4,9 @@
         textFirstArea: textFirstAreaData,
         textErrorArea: textErrorAreaData,
         homeText: homeTextData,
+        textFooter: textFooterData,
+        textContador: textContadorData,
+        tSecond: tSecondData,
     }">
     {{ text }}
     </p>
@@ -28,6 +31,15 @@ export default {
         },
         homeText: {
             default: false,
+        },
+        textContador: {
+            default: false,
+        },
+        textFooter: {
+            default: false,
+        },
+        tSecond: {
+            default: false,
         }
     },
 
@@ -36,6 +48,9 @@ export default {
             textFirstAreaData: this.textFirstArea,
             textErrorAreaData: this.textErrorArea,
             homeTextData: this.homeText,
+            textContadorData: this.textContador,
+            textFooterData: this.textFooter,
+            tSecondData: this.tSecond,
 
         }
     },
