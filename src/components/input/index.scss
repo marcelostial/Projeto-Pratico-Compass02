@@ -9,6 +9,10 @@
     color: #E0E0E0;
     padding-left: 8%;
 
+    &::-ms-reveal {
+        display: none;
+    }
+
     &:focus{
         outline: 0;
     }

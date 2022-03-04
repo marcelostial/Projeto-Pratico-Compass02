@@ -22,43 +22,40 @@ export default {
         return {
             iconTempoData: "cloud",
             grauData: "NE",
-            localData: "Localização não Disponível",
+            localData: "Localização N/D",
         };
     },
     methods: {
         weatherLogical() {
-              if('geolocation' in navigator) {
-                            navigator.geolocation.getCurrentPosition((position) => {
-                                let lat = position.coords.latitude;
-                                let long = position.coords.longitude;
-                                let localnovo = "Curvelo";
-                                this.localData = localnovo;
-                                this.locationLogical(lat, long);
-                                
-                            });
+                if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        let lat = position.coords.latitude;
+                        let long = position.coords.longitude;
 
+                        const locapi = "https://us1.locationiq.com/v1/reverse.php?key=pk.e8b4b142ba161280a30a39b649ca898d&lat="+lat +"&lon=" + long +"&format=json"
+                        axios.get(locapi).then((locationData) => {
+                        this.city = locationData.data.address.city.replace(/ /g, "-");
+                
                         const api = 'https://api.weatherapi.com/v1/current.json?key=1bfd13269e7d4825a7811658221002&q=Juiz de Fora&aqi=no'
                         axios.get(api).then((personalData) => {
                         console.log(personalData);
                         let grau = `${personalData.data.current.temp_c.toFixed()}`
                         this.grauData = grau;
-                        
+
                         const icons = personalData.data.current.condition.text;
                         let addIcons = personalData.data.current.condition.icon;
                         let iconTempo = this.addIconsLogical(icons, addIcons);
                         this.iconTempoData = iconTempo;
+
+                        this.local = personalData.data.location.name;
+
+                        let localnovo =  `${this.local} - MG`
+                        this.localData = localnovo;
             
                     });
-              }
-        },    
-
-        locationLogical(lat, long){
-                const locapi = "https://us1.locationiq.com/v1/reverse.php?key=pk.e8b4b142ba161280a30a39b649ca898d&lat="+lat +"&lon=" + long +"&format=json"
-                axios.get(locapi).then((locationData) => {
-                    console.log(locationData)
-
-
                 });
+            });
+           }
         },
 
         addIconsLogical(icons, addIcons) {

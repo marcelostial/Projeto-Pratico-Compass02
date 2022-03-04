@@ -1,65 +1,110 @@
 <template>
   <div>
-    <input :class="{
-      formUserStyle,
-      formSubmitStyle,
-      formErrorStyle,
-    }"
-    :type="type" 
-    :value="value" 
-    @input="$emit('clickSubmit', $event.target.value)"
-    :placeholder="placeholder">
-    <img v-if="icon" draggable="false" class="form" :src="require(`@/assets/${icon}`)" :alt="alt">
+    <input
+      @input="updateUser"
+      v-if="type==='text'"
+      v-model="user"
+      :class="{
+        formUserStyle,
+        formErrorStyle,
+      }"
+      :type="type"
+      :value="value"
+      :placeholder="placeholder"
+    />
+
+    <input
+       @input="updatePassword"
+       v-if="type==='password'"
+       v-model="password"
+      :class="{
+        formUserStyle,
+        formErrorStyle,
+      }"
+      :type="type"
+      :value="value"
+      :placeholder="placeholder"
+    />
+
+    <input
+      v-if="type==='submit'"
+
+      :class="{
+        formSubmitStyle,
+      }"
+      :type="type"
+      :value="value"
+      :placeholder="placeholder"
+    />
+
+    <img
+      v-if="icon"
+      draggable="false"
+      class="form"
+      :src="require(`@/assets/${icon}`)"
+      :alt="alt"
+    />
   </div>
 </template>
 
 <script>
+
 export default {
   name: "Input",
 
-  emits: "submitClick",
-  props:{
-     type: {
-        type: String,
-        required: true,
-      },
-    
-      placeholder: {
-        type: String,
-      },
-
-      value: {
-        type: String,
-      },
-
-       formUserStyle: {
-          required: true,
-       },
-
-       formSubmitStyle: {
-          required: true,
-       },
-
-       formErrorStyle:{
-         required: true,
-       },
-
-      icon: {
-        type: String,
-       },
-
-      alt: {
-        type: String,
-       },
+  data() {
+    return {
+      user:"",
+      password:"",
+    }
   },
 
-  data(){
-        return{
-        }
+  props: {
+    type: {
+      type: String,
+      required: true,
     },
-}
+
+    placeholder: {
+      type: String,
+    },
+
+    value: {
+      type: String,
+    },
+
+    formUserStyle: {
+      // required: true,
+    },
+
+    formSubmitStyle: {
+      // required: true,
+    },
+
+    formErrorStyle: {
+      // required: true,
+    },
+
+    icon: {
+      type: String,
+    },
+
+    alt: {
+      type: String,
+    },
+  },
+
+  methods: {
+    updateUser(){
+      this.$store.commit('setUser', this.user)
+    },
+    updatePassword(){
+      this.$store.commit('setPassword', this.password)
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>

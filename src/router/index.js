@@ -9,7 +9,8 @@ const routes = [
   {
   path: '/login',
   name: 'Login',
-  component: loginPage
+  component: loginPage,
+  meta: { title: 'Compass - Login' }
 },
 
 {
@@ -20,7 +21,8 @@ const routes = [
 {
   path: '/home',
   name: 'Home',
-  component: homePage
+  component: homePage,
+  meta: { title: 'Compass - Home' }
 },
 {
   path: '/home',
@@ -32,6 +34,23 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next)=>{
+  if ( to.name === 'home'){
+    next({
+      path: '/login',
+      replace: true
+    })
+  } else {
+    next();
+  }
+})
+
+router.afterEach((to) =>{
+  if (to.meta && to.meta.title){
+    document.title = to.meta.title
+  }
 })
 
 export default router
