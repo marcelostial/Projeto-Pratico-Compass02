@@ -60,3 +60,38 @@ img{
    
 }
 
+@media (max-width: 800px) {
+  
+    h1{
+        width: 90%;
+    }
+
+
+    p{
+        font-size: 1.1em;
+    }
+
+    .formSubmitStyle{
+        font-size: 1.2em;
+        height: 70px;
+    }
+
+    .formUserStyle{
+        font-size: 1.2em;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    #texto1{
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width: 375px){
+
+
+}

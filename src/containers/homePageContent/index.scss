@@ -11,7 +11,7 @@
 
  
 #logoCompass img{
-    width: 90%;
+    width: 95%;
 }
 
 #areaText{
@@ -22,4 +22,31 @@
     margin-top: 3%;
     left: 40%;
     letter-spacing: 0.4px;
+}
+
+@media(max-width: 1050px){
+    #areaText{
+        display: none;
+    }
+}
+
+
+@media(max-width: 1500px){
+     #logoCompass img{
+     width: 90%;
+     }
+    
+}
+
+@media(max-width: 420px){
+    #logoCompass img{
+    width: 95%;
+    }
+   
+}
+
+@media(max-width: 1600px){
+    #areaText{
+        left: 50%;
+    }
 }

@@ -10,12 +10,42 @@
 }
 
 .textErrorArea{
+    visibility: hidden;
+    text-align: center;
+    color: #E9B425;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.loginError{
+    visibility: visible;
     text-align: center;
     color: #E9B425;
     font-size: 16px;
     font-weight: bold;
 }
 
+@media (max-width: 800px) {
+
+    .textFirstArea{
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .textFirstArea{
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px){
+    .textErrorArea{
+        font-size: 10px;
+    }
+}
 .homeText{
     line-height: 1.3em;
     color: #1C1D20;
@@ -48,3 +78,40 @@
     top: 62px;
     left: 20px;
 }
+
+@media (max-width: 1800px){
+    .homeText{
+        line-height: 1.3em;
+        font-size: 1.1em;
+    }
+     
+}
+
+@media (max-width: 1600px){
+
+    .homeText{
+        line-height: 1.3em;
+        font-size: 1.2em;
+    }
+    
+}
+
+@media (max-width: 1360px){
+
+    .homeText{
+        line-height: 1.3em;
+        font-size: 1.1em;
+    }
+
+}
+
+@media(max-width: 1155px){
+    .homeText{
+        line-height: 1.3em;
+        font-size: 0.9em;
+    }
+    .textContador{
+        font-size: 11px;
+    }
+}
+

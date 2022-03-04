@@ -1,13 +1,13 @@
 <template>
   <div id="screenLeft">
-    <div id="areaWelcome">
-      <div id="logobrancamobile">
+          <div id="logobrancamobile">
         <img
           draggable="false"
           src="@/assets/logo-Compass-branca.png"
           alt="Logo Compasso"
         />
       </div>
+    <div id="areaWelcome">
       <Title :level="1" firstTitleStyle="true" text="Olá," />
       <TextContent
         textFirstArea="true"
@@ -36,7 +36,7 @@
       />
       <div id="areaErrorMsg">
         <TextContent
-          v-show="errorMostrar"
+          :loginError="this.$store.state.loginError"
           textErrorArea="true"
           text="Ops, usuário ou senha inválidos. Tente novamente!"
         />
@@ -64,19 +64,18 @@ data(){
     return{
       user: "",
       pass: "",
-      errorMostrar: false,
     }
 },
 
 methods: {
     handleSubmit(){
       this.$store.commit('loginLogical')
-      this.errorMostrar = true;
     },
 },
 
 beforeMount() {
     this.$store.commit('formErrorStyleMutations',false)
+    this.$store.commit('loginErrorStyleMutations',false)
   }
 }
 </script>

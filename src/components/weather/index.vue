@@ -36,7 +36,7 @@ export default {
                         axios.get(locapi).then((locationData) => {
                         this.city = locationData.data.address.city.replace(/ /g, "-");
                 
-                        const api = 'https://api.weatherapi.com/v1/current.json?key=1bfd13269e7d4825a7811658221002&q=Juiz de Fora&aqi=no'
+                        const api = 'https://api.weatherapi.com/v1/current.json?key=1bfd13269e7d4825a7811658221002&q=' + this.city + "a&aqi=no"
                         axios.get(api).then((personalData) => {
                         console.log(personalData);
                         let grau = `${personalData.data.current.temp_c.toFixed()}`
@@ -48,8 +48,12 @@ export default {
                         this.iconTempoData = iconTempo;
 
                         this.local = personalData.data.location.name;
+                        this.state = personalData.data.location.region;
+                        const region = personalData.data.location.region;
 
-                        let localnovo =  `${this.local} - MG`
+                        this.stateData = this.regionSiglasLogical(region);
+
+                        let localnovo =  `${this.local} - ${this.stateData}`
                         this.localData = localnovo;
             
                     });
@@ -81,6 +85,94 @@ export default {
             }
             return addIcons;
         },
+
+        regionSiglasLogical(region) {
+        let regionSigla= "";
+  
+        switch (region) {
+            case "Acre":
+                regionSigla = "AC";
+                break;
+            case "Alagoas":
+                regionSigla = "AL";
+                break;
+            case "Amapá":
+                regionSigla = "AP";
+                break;
+            case "Amazonas":
+                regionSigla = "AM";
+                break;
+            case "Bhaia":
+                regionSigla = "BA";
+                break;
+            case "Ceará":
+                regionSigla = "CE";
+                break;
+            case "Espírito Santo":
+                regionSigla = "ES";
+                break;
+            case "Goiás":
+                regionSigla = "GO";
+                break;
+            case "Maranhão":
+                regionSigla = "MA";
+                break;
+            case "Mato Grosso":
+                regionSigla = "MT";
+                break;
+            case "Mato Grosso do Sul":
+                regionSigla = "MS";
+                break;
+            case "Minas Gerais":
+                regionSigla = "MG";
+                break;
+            case "Pará":
+                regionSigla = "PA";
+                break;
+            case "Paraíba":
+                regionSigla = "PB";
+                break;
+            case "Paraná":
+                regionSigla = "PR";
+                break;
+            case "Pernambuco":
+                regionSigla = "PE";
+                break;
+            case "Piauí":
+                regionSigla = "PI";
+                break;
+            case "Rio de Janeiro":
+                regionSigla = "RJ";
+                break;
+            case "Rio Grande do Norte":
+                regionSigla = "RN";
+                break;
+            case "Rio Grande do Sul":
+                regionSigla = "RS";
+                break;
+            case "Rondônia":
+                regionSigla = "RO";
+                break;
+            case "Roraima":
+                regionSigla = "RR";
+                break;
+            case "Santa Catarina":
+                regionSigla = "SC";
+                break;
+            case "São Paulo":
+                regionSigla = "SP";
+                break;
+            case "Sergipe":
+                regionSigla = "SE";
+                break;
+            case "Tocantins":
+                regionSigla = "TO";
+            break;
+            case "Distrito Federal":
+                regionSigla = "DF"
+
+        } return regionSigla;
+    }
 
 },
      mounted() {

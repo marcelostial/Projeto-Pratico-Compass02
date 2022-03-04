@@ -17,3 +17,9 @@
  #logo img{
      width: 340px;
  }
+
+ @media (max-width: 800px) {
+    #screenRight{
+      display: none;
+    }
+ }

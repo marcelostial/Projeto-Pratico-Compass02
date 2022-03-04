@@ -18,3 +18,13 @@
     font-size: 16px;
     font-weight: 400;
 }
+
+@media (max-width: 1155px){
+    #horarioStyle{
+        font-size: 130px;
+    }
+    #dataStyle{
+        top: 160px;
+        font-size: 14px;
+    }
+}

@@ -7,6 +7,7 @@
         textFooter: textFooterData,
         textContador: textContadorData,
         tSecond: tSecondData,
+        loginError,
     }">
     {{ text }}
     </p>
@@ -39,6 +40,9 @@ export default {
             default: false,
         },
         tSecond: {
+            default: false,
+        },
+        loginError: {
             default: false,
         }
     },

@@ -27,6 +27,7 @@ const routes = [
 {
   path: '/home',
   redirect: '/home',
+
 },
 ]
 
@@ -34,17 +35,6 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
-
-router.beforeEach((to, from, next)=>{
-  if ( to.name === 'home'){
-    next({
-      path: '/login',
-      replace: true
-    })
-  } else {
-    next();
-  }
 })
 
 router.afterEach((to) =>{

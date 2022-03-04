@@ -14,3 +14,20 @@
     width: 220px;
     }
  }
+
+
+
+@media(max-width: 1050px){
+
+    #areaContador{
+        display: none;
+    }
+
+    #areaHorario{
+        display: none;
+    }
+    
+    #areaTempo{
+        display: none;
+    }
+}

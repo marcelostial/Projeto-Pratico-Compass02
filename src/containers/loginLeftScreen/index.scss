@@ -43,3 +43,51 @@ h1{
     width: 80%;
 }
 
+
+@media (max-width: 800px) {
+    #screenLeft{
+        width: 100%;  
+        justify-content: flex-start;
+    }
+
+    #logobrancamobile{
+        display: block;
+        width: 340px;
+    }
+
+    #logobrancamobile img{
+        position: absolute;
+        height: 50px;
+        right: 5%;
+        top: 2%;
+    }
+
+    #areaWelcome{
+        font-size: 1.5em;
+        width: 80%;
+        margin-right: 10%;
+    }
+
+    #areaLogin{
+        width: 70%;
+        font-size: 1.2em;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    #areaWelcome{
+        width: 60%;
+        margin-right: 15%;
+    }
+}
+
+@media (max-width: 375px){
+
+    #areaLogin{
+        width: 60%;
+        height: 10vh;
+        gap: 10px;
+    }
+}

@@ -25,6 +25,10 @@ export default new Vuex.Store({
       state.formErrorStyle = payload;
     },
 
+    loginErrorStyleMutations(state, payload){
+      state.loginError = payload;
+    },
+
     loginLogical(state) {
       if (state.userValue === "admin" && state.userPassword === "admin"){
          router.push({name:'Home'}) 

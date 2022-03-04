@@ -19,3 +19,18 @@
     height: 54%;
     padding-left: 5%;
 }
+
+#local{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+}
+
+@media (max-width: 1155px){
+    #local{
+        font-size: 14px; 
+    }
+}
