@@ -20,17 +20,18 @@ const routes = [
 
 {
   path: '/home',
+  component: loginPage,
+
+},
+
+
+{
+  path: '/home',
   name: 'Home',
   component: homePage,
   meta: { title: 'Compass - Home' }
 },
-{
-  path: '/home',
-  redirect: '/home',
-
-},
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
